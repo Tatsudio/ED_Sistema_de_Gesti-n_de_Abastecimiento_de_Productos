@@ -1,0 +1,25 @@
+create profile C##ADM limit
+FAILED_LOGIN_ATTEMPTS 3
+connect_time 480
+idle_time 30
+password_life_time 30
+password_reuse_max 3
+password_reuse_time 90
+sessions_per_user 2;
+
+/*Crear un nuevo usuario utilizando el nuevo perfil*/
+select * from dba_tablespaces;
+CREATE USER C##PROYECTO
+IDENTIFIED BY orcl
+DEFAULT TABLESPACE users
+TEMPORARY TABLESPACE temp
+PROFILE C##PERSONAL;
+
+/*asignar provilegios de crear session*/
+GRANT CREATE SESSION TO C##PROYECTO;
+
+/*CREANDO TABLAS EWE PERROOOO*/
+/*NECESITA PRIVILEGIO CREAR TABLAS*/
+GRANT CREATE TABLE TO C##PROYECTO;
+
+alter user c##proyecto identified by proyecto account unlock;
